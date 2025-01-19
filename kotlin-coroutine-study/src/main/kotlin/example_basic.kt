@@ -56,7 +56,7 @@ fun main() = runBlocking {
     }
     launch {
         repeat(5) {
-                i->
+            i->
             println("Coroutine B, $i")
             delay(10L)
         }
@@ -64,6 +64,7 @@ fun main() = runBlocking {
     println("Coroutine A and B has started")
 }
 
+//println 오버라이드해서 출력 커스텀 (VM option: -Dkotlinx.coroutines.debug)
 fun <T>println(msg: T) {
     kotlin.io.println("$msg [${Thread.currentThread().name}]")
 }
